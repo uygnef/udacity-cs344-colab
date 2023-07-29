@@ -5,6 +5,9 @@
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <string>
+#include "opencv2/imgcodecs/legacy/constants_c.h"
+#include "opencv2/imgproc/types_c.h"
+
 
 cv::Mat imageRGBA;
 cv::Mat imageGrey;
@@ -77,7 +80,7 @@ void cleanup()
 
 void generateReferenceImage(std::string input_filename, std::string output_filename)
 {
-  cv::Mat reference = cv::imread(input_filename, CV_LOAD_IMAGE_GRAYSCALE);
+  cv::Mat reference = cv::imread(input_filename, cv::IMREAD_GRAYSCALE);
 
   cv::imwrite(output_filename, reference);
 
